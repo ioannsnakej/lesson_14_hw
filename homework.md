@@ -21,6 +21,9 @@ https://andreyex.ru/linux/kak-otlazhivat-stsenarij-bash/.
 
   <img width="586" height="286" alt="image" src="https://github.com/user-attachments/assets/6044f9f6-7e1d-4e43-bc8f-ab86ac01e810" />
 
+2. Повторите шаги, указанные в этой статье :
+https://basis.gnulinux.pro/ru/latest/basis/30/30._bash_скрипты_№4.html
+
   
 
 
