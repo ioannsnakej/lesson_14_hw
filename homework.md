@@ -96,6 +96,9 @@ https://basis.gnulinux.pro/ru/latest/basis/30/30._bash_скрипты_№4.html
 
   Удаляю файл и запускаю повторно:
 
+  <img width="587" height="627" alt="image" src="https://github.com/user-attachments/assets/157264e1-f9b9-47b8-be90-9954097a8796" />
+
+
   
 
 
