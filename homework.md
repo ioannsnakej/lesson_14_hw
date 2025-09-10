@@ -24,7 +24,80 @@ https://andreyex.ru/linux/kak-otlazhivat-stsenarij-bash/.
 2. Повторите шаги, указанные в этой статье :
 https://basis.gnulinux.pro/ru/latest/basis/30/30._bash_скрипты_№4.html
 
+  По главам 27-30 создал скрипт
+
+      #!/bin/bash
+    
+    if [ "$(id -u)" != 0 ]; then
+      echo "root permissions required" >&2
+      exit 1
+    fi
+    
+    file=/var/users
+    shell=/sbin/nologin
+    oldIFS=$IFS
+    
+    create_user(){
+      IFS=$oldIFS
+      groupadd "${group}"
+    
+    
+      # Sudoers
+      if [ "${group}" = it ] || [ "${group}" = security ]; then
+        if ! grep "%$group" /etc/sudoers; then
+          cp /etc/sudoers{,.bkp}
+          echo '%'$group' ALL=(ALL) ALL' >> /etc/sudoers
+        fi
+        shell=/bin/bash
+      elif [ "$user" = admin ]; then
+        if ! grep "$user" /etc/sudoers; then
+          cp /etc/sudoers{,.bkp}
+          echo $user' ALL=(ALL) ALL' >> /etc/sudoers
+        fi
+      fi
+      mkdir -v /home/"${group}"
+      useradd "${user}" -g "${group}" -b /home/"${group}" -s "${shell}"
+    }
+    
+    
+    # Check arguments
+    if [ ! -z $2 ]; then
+      user="$1"
+      group="$2"
+      echo Username: $user Group: $group
+      create_user
+    elif [ -f "${file}" ]; then
+      IFS=$'\n'
+      for line in $(cat "${file}"); do
+        user=$(echo $line | cut -d' ' -f1)
+        group=$(echo $line | cut -d' ' -f2)
+        echo Username: $user Group: $group
+        create_user
+      done
+      IFS=$oldIFS
+    else
+      echo "Welcome!"
+      select option in "Add user" "Show users" "Exit"; do
+        case $option in
+          "Add user") read -p "Print username: " user
+                      read -p "Print groupname: " group
+                      create_user ;;
+          "Show users") cut -d: -f1 /etc/passwd ;;
+          "Exit") break ;;
+          *) echo Wrong option ;;
+        esac
+      done
+    fi
+
+
+  Пробую запускать:
+
+  <img width="722" height="765" alt="image" src="https://github.com/user-attachments/assets/421246e1-111f-491c-b7e7-cd561cb40bdc" />
+
+  Удаляю файл и запускаю повторно:
+
   
+
 
 
 
