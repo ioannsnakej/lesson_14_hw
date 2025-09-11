@@ -179,7 +179,32 @@ https://basis.gnulinux.pro/ru/latest/basis/30/30._bash_скрипты_№4.html
             fi
 
 
-  
+  Проверяю:
+
+  создам файл:
+
+  <img width="466" height="315" alt="image" src="https://github.com/user-attachments/assets/9030cf33-ec0a-4039-ba66-9a3b82a1e23e" />
+
+  Запускаю:
+
+  с двумя параметрами:
+
+  <img width="559" height="73" alt="image" src="https://github.com/user-attachments/assets/70792e6f-4e54-474d-a47f-59350da087ce" />
+
+  с одним параметром:
+
+  <img width="685" height="124" alt="image" src="https://github.com/user-attachments/assets/5abdc394-05a3-42fc-91ed-8fc662af27d6" />
+
+  без параметров и пробуем меню:
+
+  <img width="709" height="740" alt="image" src="https://github.com/user-attachments/assets/7030feb6-c657-4aad-830e-a9537494afc1" />
+
+  <img width="709" height="413" alt="image" src="https://github.com/user-attachments/assets/0f6b157c-a5a8-4605-a399-31c0bfbbcbe2" />
+
+
+
+
+
 
 
 
